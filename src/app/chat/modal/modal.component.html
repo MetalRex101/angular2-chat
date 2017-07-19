@@ -1,0 +1,15 @@
+<div *ngIf="isOpen" class="fixed-overlay fixed-overlay__modal">
+  <div class="modal">
+    <div class="modal_container">
+      <div class="modal-header">
+        <div class="modal-close" (click)="close()"><i class="fa fa-close"></i></div>
+      </div>
+      <div class="modal-body">
+        {{ message }}
+      </div>
+      <div class="nav-btns" *ngIf="needNav">
+        <button (click)="emitYes()">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>

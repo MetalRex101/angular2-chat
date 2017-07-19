@@ -1,0 +1,31 @@
+<div class="chat">
+  <div class="header">
+    <div class="app-title">Messenger</div>
+    <div class="nav-btn">
+      <i class="fa fa-bars"></i>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="messages-label">Messages</div>
+    <div class="export-delete-btns">
+      <div class="export-btn" (click)="openModal()">export</div>
+      <div class="delete-btn" (click)="confirmDelete()">delete all</div>
+    </div>
+  </div>
+  <div class="body">
+    <div *ngFor="let message of messages" class="message" [style.background]="message.color">
+      <div class="delete-message" (click)="deleteMsg($event, message)"><i class="fa fa-trash"></i></div>
+      <div class="name-date">{{ message.name }}({{ message.dateTime }})</div>
+      <div class="msg-text">{{ message.text }}</div>
+    </div>
+  </div>
+  <div class="footer">
+    <app-editor (message)="handleMessageSend($event)"></app-editor>
+  </div>
+  <app-modal [isOpen]="modalOpen"
+             [message]="modalText"
+             [needNav]="needNav"
+             (yesEmitter)="deleteAll()"
+             (closeEmitter)="close()"
+  ></app-modal>
+</div>

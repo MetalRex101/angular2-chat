@@ -1,0 +1,4 @@
+<div class="editor">
+  <textarea [(ngModel)]="text" (keyup)="onKey($event)">{{ text }}</textarea>
+  <button (click)="onClick($event)">send</button>
+</div>
